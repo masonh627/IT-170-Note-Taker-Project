@@ -5,7 +5,7 @@ from collections import Counter
 def analyze_notes(folder="."):
     """Shows basic stats about the saved notes.
 
-    Function Author: Christian Landa"""
+    Function Writer: Christian Landa"""
     word_counts = {}
     all_words = Counter()
 
