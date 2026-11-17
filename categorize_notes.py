@@ -12,7 +12,7 @@ def categorize_notes(folder="."):
     """Sorts each saved note into a category by counting keywords.
     Writes an organization plan but does NOT move any files.
 
-    Function Author: Christian Landa"""
+    Function Writer: Christian Landa"""
     categorized = {}
 
     for fileName in os.listdir(folder):
