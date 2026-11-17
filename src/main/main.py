@@ -8,7 +8,13 @@
 from datetime import datetime
 # Needed for finding note files and analyzing notes (Christian)
 import os
+import socket
+import sys
 from collections import Counter
+
+
+
+        
 
 def browse_notes(filename='notes.txt'):
     # This function was created by Christian Landa
@@ -135,3 +141,50 @@ def saveNote(noteData: str, noteFileName:str =None, saveLocation:str =None) -> b
 
     # By Default, return False
     return False
+
+
+def main_function():
+    # Function by Elijah Morgan
+    hostname = socket.gethostname()
+
+    while True:
+        print(f"\nHello {hostname}")
+        print("[C] Create a new note")
+        print("[B] Browse saved notes")
+        print("[E] Exit")
+        
+        choice = input(">> ").lower().strip()
+
+        if choice == "c":
+            print("\n --- CREATE NOTE ---")
+
+            name = input("Enter note name: ")
+            print("Enter your note below. When finished, type [END]")
+
+            notel = []
+
+            while True:
+                line = input()
+                if line == "END":
+                    break
+                notel.append(line)
+
+            note_info = name + "\n" + "\n".join(notel) + "\n---\n"
+
+            if saveNote(note_info, "notes", None):
+                print("\nNote saved!")
+        
+        elif choice == "b":
+            print("\n --- BROWSE NOTES ---")
+            browse_notes()
+
+        elif choice == "e":
+            print("Exiting")
+            sys.exit(0)
+
+        else:
+            print("Invalid choice. Type either C,B,E")
+
+            
+main_function()
+
