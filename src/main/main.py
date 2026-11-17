@@ -6,6 +6,9 @@
 
 # Needed for naming the notes files
 from datetime import datetime
+# Needed for finding note files and analyzing notes (Christian)
+import os
+from collections import Counter
 
 def browse_notes(filename='notes.txt'):
     # This function was created by Christian Landa
